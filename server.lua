@@ -1,7 +1,6 @@
 RegisterServerEvent("flundar:scriptrestarter")
 AddEventHandler('flundar:scriptrestarter', function()
-	saat1 = os.date('%H:%M:%S', os.time())
-	local saat = saat1
+	local saat = os.date('%H:%M:%S', os.time())
 	if saat == '08:00:00' then
 	     ExecuteCommand("start flundarlac") -- ÖRNEK SCRIPT
 	elseif saat == '17:23:00' then
@@ -14,9 +13,9 @@ AddEventHandler('flundar:scriptrestarter', function()
 end)
 
 function restart_yaz()
-	SetTimeout(1000, function()
-		TriggerEvent('flundar:scriptrestarter')
-		restart_yaz()
-	end)
+  SetTimeout(1000, function()
+    TriggerEvent('flundar:scriptrestarter')
+    restart_yaz()
+  end)
 end
 restart_yaz()
